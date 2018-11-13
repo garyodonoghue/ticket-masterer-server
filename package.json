@@ -4,7 +4,9 @@
   "description": "server endpoint for ticket-masterer webapp",
   "main": "index.js",
   "dependencies": {
-    "angular": "^1.7.2"
+    "angular": "^1.7.2",
+    "express": "^4.16.4",
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
