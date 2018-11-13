@@ -1,12 +1,13 @@
 var express = require('express'); //npm install express
 var app = express();
+require('dotenv').config()
 
 //Load the request module
 var request = require('request'); //npm install request
 
 //Lets configure and request
 
-//accepts the redirect_uri in the form of http://localhost:8080/?code=onaonasodnabsfin213123
+//accepts the redirect_uri in the form of http://localhost:8080/?code=blah
 app.get('/', function(req, res) {
     var auth_code = req.query.code;
 
@@ -19,8 +20,8 @@ app.get('/', function(req, res) {
         },
         form: {
             grant_type: 'authorization_code',
-            client_id: 'woQznFCtl6peWX1JV0uaHc7DhABAVdFt',
-            client_secret: '<secret>',
+            client_id: process.env.CLIENT_ID,
+            client_secret: process.env.CLIENT_SECRET,
             code: auth_code
         }
     }, function(error, response, body) {
