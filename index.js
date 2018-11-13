@@ -19,8 +19,8 @@ app.get('/', function(req, res) {
         },
         form: {
             grant_type: 'authorization_code',
-            client_id: '<client_id>',
-            client_secret: '<client_secret>',
+            client_id: 'woQznFCtl6peWX1JV0uaHc7DhABAVdFt',
+            client_secret: '<secret>',
             code: auth_code
         }
     }, function(error, response, body) {
@@ -31,7 +31,7 @@ app.get('/', function(req, res) {
             success_body = JSON.parse(body);
             console.log(success_body.access_token);
             console.log(success_body.refresh_token);
-            res.redirect("http://localhost:8081/?access_token="+success_body.access_token+"&refresh_token"+success_body.refresh_token);
+            res.redirect("http://localhost:4200/?access_token="+success_body.access_token+"&refresh_token"+success_body.refresh_token);
         }
     });
 });
