@@ -1,0 +1,26 @@
+{
+  "name": "ticket-masterer-server",
+  "version": "1.0.0",
+  "description": "server endpoint for ticket-masterer webapp",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garyodonoghue/ticket-masterer-server.git"
+  },
+  "keywords": [
+    "ticketmaster"
+  ],
+  "author": "garyodonoghue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garyodonoghue/ticket-masterer-server/issues"
+  },
+  "homepage": "https://github.com/garyodonoghue/ticket-masterer-server#readme"
+}
