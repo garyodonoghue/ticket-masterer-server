@@ -1,6 +1,14 @@
 var express = require('express'); //npm install express
 var app = express();
-var cors = require('cors')
+var cors = require('cors');
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
+
+var privateKey  = fs.readFileSync('/etc/letsencrypt/live/ticket-masterer-service.com/privkey.pem', 'utf8');
+var certificate = fs.readFileSync('/etc/letsencrypt/live/ticket-masterer-service.com/sslcert/cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
 require('dotenv').config()
 
 app.use(cors())
@@ -81,6 +89,12 @@ app.get('/getEventDetails', function(req, res) {
     });
 });
 
-app.listen(8080, function() {
-    console.log('Example app listening on port 8080!');
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(8080, function() {
+    console.log('HTTPS ticket-masterer-service listening on port 8080!');
+});
+httpsServer.listen(8083, function() {
+    console.log('HTTPS ticket-masterer-service listening on port 8083!');
 });
