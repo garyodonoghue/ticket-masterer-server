@@ -3,7 +3,7 @@ var app = express();
 var cors = require('cors')
 require('dotenv').config()
 
-qpp.use(cors())
+app.use(cors())
 
 //Load the request module
 var request = require('request'); //npm install request
