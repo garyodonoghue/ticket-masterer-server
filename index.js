@@ -56,7 +56,7 @@ app.get('/listEvents', function(req, res) {
             console.log(error);
         } else {
             console.log(response.statusCode);
-            res.json(response);
+            res.send(body);
         }
     });
 });
@@ -76,7 +76,7 @@ app.get('/getEventDetails', function(req, res) {
             console.log(error);
         } else {
             console.log(response.statusCode);
-            res.json(response);
+            res.send(body);
         }
     });
 });
